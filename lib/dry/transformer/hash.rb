@@ -173,7 +173,7 @@ module Dry
         Hash[source_hash].tap do |hash|
           mapping.each do |original_key, new_keys|
             [*new_keys].each do |new_key|
-              hash[new_key] = hash[original_key]
+              hash[new_key] = hash[original_key] if hash.key?(original_key)
             end
           end
         end
